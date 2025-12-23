@@ -6,7 +6,9 @@ int main(){
     try{
     Vector vec1{1.0,2.0,3.0};
     Vector vec2{2.0,1.0,0.5};
+    int scalar= 3;
     Vector results = vec1+vec2;
+    results = scalar*results;
     for(double x : results.components){
         std::cout <<x<<"\n";
     }

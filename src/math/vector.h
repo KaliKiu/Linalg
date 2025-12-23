@@ -22,6 +22,27 @@ struct Vector{
         Vector vec(newcomponents);
         return vec;
     }
+    Vector operator*(const int& scalar) const {
+        std::vector<double> newcomponents;
+        for(double x : components){newcomponents.push_back(scalar*x);}
+        Vector vec(newcomponents);
+    }
+    Vector operator*(const double& scalar) const {
+        std::vector<double> newcomponents;
+        for(double x : components){newcomponents.push_back(scalar*x);}
+        Vector vec(newcomponents);
+    }
+    
 };
+    Vector operator*(const int& scalar,Vector vec){
+        std::vector<double> newcomponents;
+        for(double x: vec.components){newcomponents.push_back(scalar*x);}
+        Vector vec(newcomponents);
+    }
+    Vector operator*(const double& scalar, Vector vec){
+        std::vector<double> newcomponents;
+        for(double x: vec.components){newcomponents.push_back(scalar*x);}
+        Vector vec(newcomponents);
+    }
 
 #endif

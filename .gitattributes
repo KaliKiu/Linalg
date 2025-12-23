@@ -1,0 +1,4 @@
+# Force LF line endings for source files (linux stuff)
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.h   text eol=lf
