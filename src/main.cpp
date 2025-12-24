@@ -18,7 +18,6 @@ int main(){
     Matrix<double,1,3> mat;
     Matrix<double,2,1> mat2;
     Matrix<double,2,2> mat0;
-    mat0 = mat+mat2;
     mat.fill(vecc);
     
     }catch (const std::bad_alloc& e){

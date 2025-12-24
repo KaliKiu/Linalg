@@ -62,11 +62,19 @@ class Matrix{
         std::cout <<"\n";
         }
     }
-    Matrix operator+(const Matrix matrix)const {
-        if(rows != matrix.getCols() || cols != matrix.getRows){
+    template<typename U>
+    Matrix<decltype(T{}+U{}), size_t rows, size_t cols> operator+(const Matrix<U,rows,cols>& matrix)const {
+        if(rows != matrix.getCols() || cols != matrix.getRows()){
             throw MatrixError::DimensionError("Matrix.operator+()");
         }
-        //continue stuff
+        Matrix<decltype(T{}+U{}),rows,cols>results;
+        vector<vector<decltype(T{}+U{})>> components;
+
+        for(size_t i = 0; i<rows; i++){
+            for(size_t j = 0; j<cols; j++){
+                components[i][j]=(data[i][j]+matrix.data[i][j]);
+            }
+        }
     }
     std::size_t getRows(){
         return rows;
