@@ -61,6 +61,7 @@ class Matrix{
             }
         std::cout <<"\n";
         }
+        std::cout <<"--------------\n";
     }
     template<typename U>
     //fu() const -> this to const object, cant modify object
@@ -82,11 +83,10 @@ class Matrix{
 
         for(size_t i = 0; i<rows; i++){
             for(size_t j = 0; j<cols; j++){
-                resultsComponents[i].push_back((data[i][j]+matrix.data[i][j]));
+                resultsComponents[i][j]=(data[i][j]+matrix.data[i][j]);
             }
         }
-        std::cout<<"meow";
-        //BUG HERE
+
         results.fill(resultsComponents);
         return results;
     }
