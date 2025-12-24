@@ -63,23 +63,28 @@ class Matrix{
         }
     }
     template<typename U>
-    Matrix<decltype(T{}+U{}), size_t rows, size_t cols> operator+(const Matrix<U,rows,cols>& matrix)const {
+    //fu() const -> this to const object, cant modify object
+    Matrix<decltype(T{}+U{}), Rows, Cols> operator+(const Matrix<U,Rows,Cols>& matrix)const {
         if(rows != matrix.getCols() || cols != matrix.getRows()){
-            throw MatrixError::DimensionError("Matrix.operator+()");
+            //throw MatrixError::DimensionError("Matrix.operator+()");
+            std::cout <<rows <<" " << matrix.getRows() << "\n" <<cols <<" " <<matrix.getCols() <<"\n";
         }
-        Matrix<decltype(T{}+U{}),rows,cols>results;
-        vector<vector<decltype(T{}+U{})>> components;
+        Matrix<decltype(T{}+U{}),Rows,Cols> results;
+        std::vector<std::vector<decltype(T{}+U{})>> components;
 
         for(size_t i = 0; i<rows; i++){
             for(size_t j = 0; j<cols; j++){
                 components[i][j]=(data[i][j]+matrix.data[i][j]);
             }
         }
+        results.fill(components);
+        return results;
     }
-    std::size_t getRows(){
+    //getters/setters
+    std::size_t getRows() const {
         return rows;
     }
-    std::size_t getCols(){
+    std::size_t getCols() const {
         return cols;
     }
 
@@ -90,8 +95,6 @@ class Matrix{
     void setCols(std::size_t s){
         if(s>0) cols = s;
     }
-    
 };
-
 
 #endif

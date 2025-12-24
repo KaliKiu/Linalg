@@ -14,11 +14,16 @@ int main(){
     Vector vec({1,2,3});
     printVec(vec);
 
-    std::vector<std::vector<double>> vecc = {{1,3,3},{2,4,5}};
-    Matrix<double,1,3> mat;
-    Matrix<double,2,1> mat2;
-    Matrix<double,2,2> mat0;
-    mat.fill(vecc);
+    std::vector<std::vector<double>> mat2x3 = {{1,3,3},{2,4,5}};
+
+    Matrix<double,2,3> mat2;
+    Matrix<double,2,3> mat0;
+    mat2.fill(mat2x3);
+    mat0.fill(mat2x3);
+
+    auto c = mat2+mat0;
+    c.print();
+
     
     }catch (const std::bad_alloc& e){
         std::cerr <<"Out of memory: "<<e.what()<<"\n";
