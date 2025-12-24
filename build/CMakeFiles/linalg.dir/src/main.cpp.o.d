@@ -153,4 +153,5 @@ CMakeFiles/linalg.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/stdlib.h
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/stdlib.h \
+ /media/sf_GitHub/Linalg/src/math/matrix.h

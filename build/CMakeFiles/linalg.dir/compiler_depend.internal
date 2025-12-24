@@ -3,6 +3,7 @@
 
 CMakeFiles/linalg.dir/src/main.cpp.o
  /media/sf_GitHub/Linalg/src/main.cpp
+ /media/sf_GitHub/Linalg/src/math/matrix.h
  /media/sf_GitHub/Linalg/src/math/vector.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

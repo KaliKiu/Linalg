@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdexcept>
 
-//COULD USE A TEMPLATE BUT I DONT KNOW MUCH ABOUT EM YET SO SOOORRRRYYYYYYYY
+//COULD USE A TEMPLATE BUT I DONT KNOW MUCH ABOUT EM YET SO.. SOOORRRRYYYYYYYY
 struct Vector{
     std::vector<double> components;
     

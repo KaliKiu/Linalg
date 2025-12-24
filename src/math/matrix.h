@@ -1,8 +1,8 @@
 #ifndef MATRIX
 #define MATRIX
 
-#include <vector.h>
 #include <stdlib.h>
+#include <vector>
 template<typename T,std::size_t Rows,std::size_t Cols>
 class Matrix{
     public: 
@@ -12,21 +12,19 @@ class Matrix{
 
     explicit Matrix(){
         for(std::size_t i = 0; i<Rows; i++){
-            for(std::size_t j = 0; j<Cols){
+            for(std::size_t j = 0; j<Cols;j++){
                 data[i][j]= T{};
             }
-            validate()
         }
     }
-    void fill(T arr[rows][cols]){
+    void fill(const std::vector<std::vector<T>>& arr){
         for(std::size_t i = 0;i<rows; i++){
-            for(std::size_t j = 0; j<cols){
+            for(std::size_t j = 0; j<cols;j++){
                 data[i][j] = arr[i][j];
             }
         }
     }
-    private:
-    bool validate()
+    
 };
 
 #endif
