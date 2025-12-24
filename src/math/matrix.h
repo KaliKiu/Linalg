@@ -25,10 +25,11 @@ namespace MatrixError{
 }
 template<typename T,std::size_t Rows,std::size_t Cols>
 class Matrix{
+    private:
+        T data[Rows][Cols];
+        std::size_t rows;
+        std::size_t cols;
     public: 
-    T data[Rows][Cols];
-    std::size_t rows;
-    std::size_t cols;
 
     explicit Matrix(): rows{Rows}, cols{Cols}{
         if(rows == 0){
@@ -42,6 +43,7 @@ class Matrix{
             }
         }
     }
+
     void fill(const std::vector<std::vector<T>>& arr){
         if(arr.size() != rows || arr[0].size() != cols){
             throw MatrixError::DimensionError("Matrix.fill()");
@@ -52,12 +54,6 @@ class Matrix{
             }
         }
     }
-    void addVector(const Vector vector){
-        for(std::size_t i = 0; i<cols; i++){
-            data[rows+1][i] = vector.components[i];
-        }
-        rows += 1;
-    }
     void print(){
         for(std::size_t i = 0; i<rows; i++){
             for(std::size_t j=0; j<cols; j++){
@@ -65,6 +61,26 @@ class Matrix{
             }
         std::cout <<"\n";
         }
+    }
+    Matrix operator+(const Matrix matrix)const {
+        if(rows != matrix.getCols() || cols != matrix.getRows){
+            throw MatrixError::DimensionError("Matrix.operator+()");
+        }
+        //continue stuff
+    }
+    std::size_t getRows(){
+        return rows;
+    }
+    std::size_t getCols(){
+        return cols;
+    }
+
+    void setRows(std::size_t r){
+        if(r>0) rows = r;
+        
+    }
+    void setCols(std::size_t s){
+        if(s>0) cols = s;
     }
     
 };

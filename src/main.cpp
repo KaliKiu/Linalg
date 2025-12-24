@@ -16,9 +16,11 @@ int main(){
 
     std::vector<std::vector<double>> vecc = {{1,3,3},{2,4,5}};
     Matrix<double,1,3> mat;
+    Matrix<double,2,1> mat2;
+    Matrix<double,2,2> mat0;
+    mat0 = mat+mat2;
     mat.fill(vecc);
     
-
     }catch (const std::bad_alloc& e){
         std::cerr <<"Out of memory: "<<e.what()<<"\n";
         return EXIT_FAILURE;
