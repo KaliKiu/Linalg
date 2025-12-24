@@ -65,19 +65,29 @@ class Matrix{
     template<typename U>
     //fu() const -> this to const object, cant modify object
     Matrix<decltype(T{}+U{}), Rows, Cols> operator+(const Matrix<U,Rows,Cols>& matrix)const {
-        if(rows != matrix.getCols() || cols != matrix.getRows()){
-            //throw MatrixError::DimensionError("Matrix.operator+()");
-            std::cout <<rows <<" " << matrix.getRows() << "\n" <<cols <<" " <<matrix.getCols() <<"\n";
+        if(rows != matrix.getRows() || cols != matrix.getCols()){
+            throw MatrixError::DimensionError("Matrix.operator+()");
         }
         Matrix<decltype(T{}+U{}),Rows,Cols> results;
-        std::vector<std::vector<decltype(T{}+U{})>> components;
+        std::vector<std::vector<decltype(T{}+U{})>> resultsComponents;
+        std::vector<decltype(T{}+U{})> defaultRow;
+
+        //fill new Matrix with default Val;
+        for(size_t l = 0; l<cols; l++){
+            defaultRow.push_back(decltype(T{}+U{}){});
+        }
+        for(size_t k = 0; k<rows; k++){
+            resultsComponents.push_back(defaultRow);
+        }
 
         for(size_t i = 0; i<rows; i++){
             for(size_t j = 0; j<cols; j++){
-                components[i][j]=(data[i][j]+matrix.data[i][j]);
+                resultsComponents[i].push_back((data[i][j]+matrix.data[i][j]));
             }
         }
-        results.fill(components);
+        std::cout<<"meow";
+        //BUG HERE
+        results.fill(resultsComponents);
         return results;
     }
     //getters/setters

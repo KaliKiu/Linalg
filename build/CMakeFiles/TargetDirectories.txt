@@ -1,3 +1,0 @@
-/media/sf_GitHub/Linalg/build/CMakeFiles/linalg.dir
-/media/sf_GitHub/Linalg/build/CMakeFiles/edit_cache.dir
-/media/sf_GitHub/Linalg/build/CMakeFiles/rebuild_cache.dir
