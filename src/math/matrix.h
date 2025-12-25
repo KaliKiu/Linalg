@@ -65,16 +65,17 @@ class Matrix{
     template<typename U>
     //fu() const -> this to const object, cant modify object
     Matrix<decltype(T{}+U{}), Rows, Cols> operator+(const Matrix<U,Rows,Cols>& matrix)const {
+        using R = decltype(T{}+U{});
         if(rows != matrix.getRows() || cols != matrix.getCols()){
             throw MatrixError::DimensionError("Matrix.operator+()");
         }
-        Matrix<decltype(T{}+U{}),Rows,Cols> results;
-        std::vector<std::vector<decltype(T{}+U{})>> resultsComponents;
-        std::vector<decltype(T{}+U{})> defaultRow;
+        Matrix<R,Rows,Cols> results;
+        std::vector<std::vector<R>> resultsComponents;
+        std::vector<R> defaultRow;
 
         //fill new Matrix with default Val;
         for(size_t l = 0; l<cols; l++){
-            defaultRow.push_back(decltype(T{}+U{}){});
+            defaultRow.push_back(R{});
         }
         for(size_t k = 0; k<rows; k++){
             resultsComponents.push_back(defaultRow);
