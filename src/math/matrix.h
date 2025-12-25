@@ -116,6 +116,18 @@ class Matrix{
         results.fill(resultsComponents);
         return results;
     }
+    //COMMON_TYPE_T (check out this)
+    template<typename U>
+    Matrix<T,Rows,Cols> operator*(const U scalar)const{
+        Matrix<T,Rows,Cols> results;
+        std::vector<std::vector<T>> resultsComponents;
+        for(size_t i = 0; i<rows;i++){
+            for(size_t j = 0; j<cols; j++){
+                resultsComponents[i][j] = data[i][j]*scalar;
+            }
+        }
+
+    }
     //getters/setters
     std::size_t getRows() const {
         return rows;
