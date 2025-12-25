@@ -14,15 +14,18 @@ int main(){
     
 
     std::vector<std::vector<double>> mat2x3 = {{1,3,3},{2,4,5}};
-    
-    Matrix<double,2,3> mat2;
-    Matrix<double,2,3> mat0;
-    mat2.fill(mat2x3);
-    mat2.print();
-    mat0.fill(mat2x3);
+    std::vector<std::vector<double>> mat3x2 = {{2,3},{1,2},{4,5}};
 
-    auto c = mat2+mat0;
-    c.print();
+    Matrix<double,2,3> mat0;
+    Matrix<double,3,2>mat1;
+
+    mat0.fill(mat2x3);
+    mat0.print();
+    mat1.fill(mat3x2);
+    mat1.print();
+
+    auto d = mat0*mat1;
+    d.print();
 
     
     }catch (const std::bad_alloc& e){
